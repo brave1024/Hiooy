@@ -1,0 +1,13 @@
+//
+//  UserInfoModel.m
+//  hiooy
+//
+//  Created by Xia Zhiyong on 14-3-21.
+//  Copyright (c) 2014年 Xia Zhiyong. All rights reserved.
+//
+
+#import "UserInfoModel.h"
+
+@implementation UserInfoModel
+
+@end

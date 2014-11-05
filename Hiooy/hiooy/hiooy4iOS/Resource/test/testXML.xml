@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<request>
+	<user id="12">
+		<name>张三</name>
+		<area>mainland:广东/广州市/东山区:425</area>
+		<addr>广东广州市东山区123号</addr>
+		<zipcode>200082</zipcode>
+		<phone>
+			<telephone>65131874</telephone>
+			<mobile>13662152154</mobile>
+		</phone>
+		<is_default>1</is_default>
+	</user>
+	<user id="13">
+		<name>李四</name>
+		<area>mainland:湖北/武汉市/洪山区:501</area>
+		<addr>湖北武汉市洪山区168号</addr>
+		<zipcode>430070</zipcode>
+		<phone>
+			<telephone>61536000</telephone>
+			<mobile>18507103285</mobile>
+		</phone>
+		<is_default>0</is_default>
+	</user>
+	<user id="18">
+		<name>王五</name>
+		<area>mainland:北京/北京市/东城区:425</area>
+		<addr>北京北京市东城区315号</addr>
+		<zipcode>100001</zipcode>
+		<phone>
+			<telephone>86911013</telephone>
+			<mobile>15927596206</mobile>
+		</phone>
+		<is_default>0</is_default>
+	</user>
+</request>

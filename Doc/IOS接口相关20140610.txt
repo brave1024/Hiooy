@@ -1,0 +1,2160 @@
+
+会员注册接口（有改动）
+http://linux.hiooy.com/ecstore/index.php/wap/passport-create.html
+	1.参数名：license {
+		描述：是否同意注册条款
+		类型：varchar
+		默认值：agree	
+		必填：是
+	}
+	2.参数名：login_name {
+		描述：登录用户名
+		类型：varchar
+		必填：是
+	}
+	3.参数名：login_password {
+		描述：登录密码
+		类型：varchar
+		必填：是
+	}
+	4.参数名：psw_confirm {
+		描述：登录确认密码
+		类型：varchar
+		必填：是
+	}
+	5.参数名：email {
+		描述：邮箱
+		类型：varchar
+		必填：否
+	}
+    6.参数名：code {
+        描述：验证码
+        类型：varchar
+        必填：是
+    }
+	
+
+
+会员登陆接口
+http://linux.hiooy.com/ecstore/index.php/wap/passport-post_login.html
+	1.参数名：uname {
+		描述：登录用户名
+		类型：varchar
+		必填：是
+	}
+	2.参数名：password {
+		描述：登录密码
+		类型：varchar
+		必填：是
+	}
+    3.参数名：type{
+        描述：用户名类型（1=》手机，2=》邮箱）
+        类型：varchar
+        必填：是
+    }
+
+
+会员登出接口
+http://linux.hiooy.com/ecstore/index.php/wap/passport-logout.html
+
+会员中心
+http://linux.hiooy.com/ecstore/index.php/wap/member.html
+
+	1.参数名：member_id {
+		描述：登陆会员id
+		类型：varchar
+		必填：是
+	}
+
+密码修改
+http://linux.hiooy.com/ecstore/index.php/wap/member-save_security.html
+1.参数名：old_passwd {
+		描述：旧密码
+		类型：varchar
+		必填：是
+	}
+	2.参数名：passwd {
+		描述：新密码
+		类型：varchar
+		必填：是
+	}
+	3.参数名：passwd_re {
+		描述：确认密码
+		类型：varchar
+		必填：是
+	}
+	4.参数名：member_id {
+		描述：登陆会员id
+		类型：varchar
+		必填：是
+	}
+
+
+找回密码（有改动）
+http://linux.hiooy.com/ecstore/index.php/wap/passport-retrive_password.html
+1.参数名：login {
+		描述：登录用户名
+		类型：varchar
+		必填：是
+	}
+	2.参数名：email {
+		描述：邮箱
+		类型：varchar
+		必填：是
+	}
+    3.参数名：code {
+        描述：验证码
+        类型：varchar
+        必填：是
+    }
+    3.参数名：new_password {
+        描述：新密码
+        类型：varchar
+        必填：是
+    }
+
+会员中心收藏列表
+http://linux.hiooy.com/ecstore/index.php/wap/member-favorite-[page].html
+参数名：member_id {
+		描述：登陆会员id
+		类型：varchar
+		必填：是
+	}
+返回data：
+    favorite => Array
+        (
+            Array
+                (
+                    goods_id => 26                                                                                                                  //商品id
+                    name => 2013新款 HIM汉崇正品 英伦格子立体修身风尚男士便西501054BL                                                               //商品名称
+                    price => 434                                                                                                                    //商品销售价格
+                    mktprice=> 789.000                                                                                                              //商品市场价
+                    type_id => 4                                                                                                                    //商品类型id
+                    type_name=> 服装配饰                                                                                                            //商品类型名称
+                    nostore_sell => 0                                                                                                               //商品是否开启无库存销售
+                    cat_id => 44                                                                                                                    //商品分类id
+                    cat_name => 正装                                                                                                                //商品分类名称
+                    marketable=> true                                                                                                               //商品是否上架
+                    brief =>                                                                                                                        //商品简介
+                    store => 37                                                                                                                     //商品库存
+                    fav_count => 3                                                                                                                  //商品被收藏次数
+                    thumbnail_pic => http://linux.hiooy.com/ecstore/public/images/2b/7f/c5/bccfc3d640e5260cfd18ef53bb448897.jpg?1395994758#h        //商品缩略图
+                    goods_url => /ecstore/index.php/wap/product-26.html                                                                             //商品链接
+                )
+            .
+            .
+            .
+
+        )
+
+    pager => Array 																																	//分页信息
+        (
+            current => 1 																															//当前页
+            total => 1 																																//总页数
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-favorite-1.html 														//当前页链接
+            next_page => http://linux.hiooy.com/ecstore/index.php/wap/member-favorite-2.html 														//下一页链接
+        )
+
+
+
+
+
+
+
+
+
+商品分类页
+http://linux.hiooy.com/ecstore/index.php/wap/category-[ID]-[page].html
+ID为分类id，可为空，默认显示顶级分类
+page为第几页，可为空，默认第一页
+data参数（顶级分类）：
+next_url= /ecstore/index.php/wap/category-0-2.html																				//下一页地址
+title = 全部分类
+cat_lists = array(
+	array(
+		'cat_id' =>1,																											//分类id
+		'cat_name' =>服装配饰,																									//分类名称
+		'child_count' =>15,																										//子分类个数
+		'image_url' =>http://linux.hiooy.com/ecstore/public/images/9e/00/da/d6109b12eda0c17a7d28c7156fece235.gif?1396321938#h,	//分类icon地址
+		'haschild' =>true,																										//是否存在子分类
+		'url' =>/ecstore/index.php/wap/category-1.html,																			//分类地址
+		'sub' =>array(																											//子分类数组
+			array(
+				'cat_id' =>7,
+				'cat_name' =>女装,
+				'child_count' =>10,
+				'image_url' =>http://linux.hiooy.com/ecstore/public/images/9e/00/da/d6109b12eda0c17a7d28c7156fece235.gif?1396321938#h,
+				'haschild' =>true,
+				'url' =>/ecstore/index.php/wap/category-7.html,	
+			)
+			.
+			.
+			.
+		)
+	)
+	.
+	.
+	.
+)
+
+非顶级分类：
+    cat_info =>Array
+        (
+            cat_id => 1
+            cat_name => 服装配饰
+            next_url => /ecstore/index.php/wap/category-1-2.html
+            url =>  /ecstore/index.php/wap/category-1-1.html
+            sub => Array
+                (
+                    Array
+                        (
+                            cat_id => 7
+                            cat_name => 女装
+                            child_count => 10
+                            image_url => http://linux.hiooy.com/ecstore/public/images/9e/00/da/d6109b12eda0c17a7d28c7156fece235.gif?1396321938#h
+                            haschild => true
+                            url => /ecstore/index.php/wap/category-7.html
+                            sub => Array	
+                                (
+                                    Array
+                                        (
+                                            cat_id =>34
+                                            cat_name =>运动装
+                                            child_count => 0
+                                            image_url => http://linux.hiooy.com/ecstore/public/images/9e/00/da/d6109b12eda0c17a7d28c7156fece235.gif?1396321938#h
+                                            haschild => false
+                                            url => /ecstore/index.php/wap/gallery-34.html
+                                        )
+                                )
+                        )
+                )
+        )
+
+
+
+商品列表页
+http://linux.hiooy.com/ecstore/index.php/wap/gallery-[ID]-[page].html
+ID为分类id，可为空，默认显示所有商品
+page为第几页，可为空，默认第一页
+
+返回
+data说明：
+    products => Array
+        (
+            Array
+                (
+                    goods_id => 1
+                    name => 春夏新品 KAILAS凯乐石户外男女款防晒排汗短袖速干T恤DG710115/720115 男款-湖水蓝 M 防紫外线+WICKDRY速干面料科技，排汗、快干+拼色圆领+个性LOGO印花设计
+                    price => 128.00
+                    store => 123
+                    mktprice => 268.00
+                    image_url=> 
+                    url => /ecstore/index.php/wap/product-1.html
+                )
+                .
+                .
+                .
+
+        )
+
+    pager => Array
+        (
+            current => 1
+            total => 3
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---7--1--index.html
+            next_page => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---7--2--index.html
+        )
+
+    orderby => Array
+        (
+        	Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---7--1--index.html
+                    lable => 人气最高
+                )
+
+            Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---5--1--index.html
+                    lable => 价格最低
+                )
+
+            Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---4--1--index.html
+                    lable => 价格最高
+                )
+
+            Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---11--1--index.html
+                    lable => 最新上架
+                )
+
+            Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---9--1--index.html
+                    lable => 销量最高
+                )
+
+        )
+
+
+关于首页六个图标链接地址
+此为虚拟分类，进入商品列表页面
+1.奢侈品：
+http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---0---1.html
+2.3c数码：
+http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---0---2.html
+3.服饰运动：
+http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---0---3.html
+4.餐饮娱乐：
+http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---0---4.html
+5.会员俱乐部（会员中心）
+http://linux.hiooy.com/ecstore/index.php/wap/member.html
+	1.参数名：member_id {
+		描述：登陆会员id
+		类型：varchar
+		必填：是
+	}
+6.发烧友：
+http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---0---5.html
+
+
+商品详情页
+http://linux.hiooy.com/ecstore/index.php/wap/product-[ID].html
+ID为商品ID，不可为空
+
+    1.参数名：member_id {
+        描述：登录会员ID号
+        类型：varchar
+        必填：（否）登陆必填
+    }
+返回data参数说明
+images=> array                                                                                                                              商品组图
+        (
+            Array
+                (
+                    [l] => http://linux.hiooy.com/ecstore/public/images/b5/55/68/b124f266131ee9294ce733829a21d2b3.jpg?1395908558#w          大图地址 
+                    [m] => http://linux.hiooy.com/ecstore/public/images/75/6d/f6/9e808850c73352403f574fee75ebd997.jpg?1395908558#w          中图地址
+                    [s] => http://linux.hiooy.com/ecstore/public/images/74/15/ea/762491411ca8f5a7c5b222cc2c0d9868.jpg?1395908558#w          小图地址
+                )
+                .
+                .
+                .
+
+        )
+
+    image_default=> array                                                                                                                              默认商品图片
+        (
+                    [l] => http://linux.hiooy.com/ecstore/public/images/b5/55/68/b124f266131ee9294ce733829a21d2b3.jpg?1395908558#w          大图地址 
+                    [m] => http://linux.hiooy.com/ecstore/public/images/75/6d/f6/9e808850c73352403f574fee75ebd997.jpg?1395908558#w          中图地址
+                    [s] => http://linux.hiooy.com/ecstore/public/images/74/15/ea/762491411ca8f5a7c5b222cc2c0d9868.jpg?1395908558#w          小图地址
+               
+
+        )
+    goods_id => 11                                                                                                                        商品id
+    name => Camel骆驼 时尚商务 单肩斜挎包休闲男包                                                                                         商品名称
+    price => 318.000                                                                                                                      销售价
+    mktprice=> 938.000                                                                                                                   市场价
+    seller_info=> Array                                                                                                                  商户信息
+        (
+            seller_id => 225                                                                                                              商户id
+            logo => http://linux.hiooy.com/ecstore/public/images/0c/04/fe/87dbe41f295c9432185b9f4f580fda0a.gif?1395218977#h               商户logo地址
+            name => 斯凯奇公司                                                                                                            商户名称
+            url => /ecstore/index.php/wap/seller-info-225.html                                                                            商户店铺地址
+        )
+
+    comments=> Array                                                                                                                     评论信息
+        (
+            list => Array                                                                                                                评论列表
+                (
+                    Array
+                        (
+                            member_name => 13661512157                                                                                            会员名（有昵称显示昵称）
+                            avatar => http://linux.hiooy.com/ecstore/public/images/0c/04/fe/87dbe41f295c9432185b9f4f580fda0a.gif?1395218977#h     会员头像
+                            comment => 11111                                                                                                      评论内容
+                        )
+                        .
+                        .
+                        .
+
+                )
+
+            [count] => 1                                                                                                                            总评论数
+        )
+    products=> Array                                                                                                                                货品信息
+        (
+            array(
+                'product_id' => 34                                                                                                                  货品id
+                'price' => 318.000                                                                                                                  货品销售价
+                'spec_info'=> 颜色：黑色                                                                                                            货品规格参数
+
+            )
+            。
+            。
+        )
+    is_fav => 1                                                                                                                                     是否已收藏（1为已收藏，0为未收藏）
+    intro_url => /ecstore/index.php/wap/product-intro-[ID].html                                                                                     商品详情地址
+    add_favurl => /ecstore/index.php/wap/member-add_favorite.html                                                                                   收藏商品地址
+)
+
+
+
+加入购物车：
+http://linux.hiooy.com/ecstore/index.php/wap/cart-addToCart.html
+参数：
+
+1.参数名：goods_id {
+        描述：商品id
+        类型：varchar
+        必填：是
+    }
+    2.参数名：product_id {
+        描述：货品id
+        类型：varchar
+        必填：多规格商品必填，单商品可不填
+    }
+    3.参数名：num {
+        描述：商品数量
+        类型：varchar
+        必填：是
+    }
+    4.参数名：type {
+        描述：商品类型（普通商品或赠品）
+        类型：varchar
+        必填：是，默认为goods（普通商品）
+    }
+    5.参数名：member_id {
+        描述：登录会员ID号
+        类型：varchar
+        必填：是，
+    }
+
+
+购物车页面
+http://linux.hiooy.com/ecstore/index.php/wap/cart.html
+1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+
+    返回参数：
+    Array
+(
+    total => 431.2                                                                                                                                   购物车总价
+    seller => Array
+        (
+            Array
+                (
+                    goods => Array（
+                        Array
+                            (
+                                goods_id => 27                                                                                                          商品id
+                                product_id => 34                                                                                                        货品id
+                                selected => true                                                                                                        选中状态
+                                price => 431.2                                                                                                       商品单价
+                                subtotal => 431.2                                                                                                       商品小计
+                                quantity => 1                                                                                                           商品数量
+                                name => 曼诺比菲 天丝牛仔连衣裤短裤女薄春夏新款 中腰宽松休闲连体裤                                                      商品名称
+                                image_url => http://linux.hiooy.com/ecstore/public/images/b8/10/15/1170767ef37e5f4baa6907682077f1b0.jpg?1395979179#w    商品名称
+                            )
+                        。
+                        .
+                        。
+                        ）
+
+                    seller_info=> Array
+                        (
+                            seller_id => 229                                                                                                            商户id
+                            seller_name => LOG ON公司                                                                                                   商户名称
+                            selected => true                                                                                                            选中状态
+                        )
+                    items_quantity => 1                                                                                                                 该商户商品数量
+                    subtotal => 431.2                                                                                                                   该商户商品总价
+
+                )
+                。
+                。
+                。
+
+        )
+
+
+
+)
+
+
+购物车提交页面
+http://linux.hiooy.com/ecstore/index.php/wap/cart-checkout.html
+
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+    2.参数名：addr_id {
+        描述：收货地址id
+        类型：varchar
+        必填：否
+    }
+    3.参数名：seller[seller_id]{
+        描述：商户id，
+        类型：varchar
+        必填：否
+    }
+
+    4.参数名：seller[shipping_id]{
+        描述：对应商户配送方式id，
+        类型：varchar
+        必填：否
+    }
+    5.参数名：seller[goods][goods_id]{
+        描述：选中商品的商品id，
+        类型：varchar
+        必填：否
+    }
+    6.参数名：seller[goods][product_id]{
+        描述：选中商品的货品id，
+        类型：varchar
+        必填：否
+    }
+
+    7.参数名：seller[goods][num]{
+        描述：选中商品数量，
+        类型：varchar
+        必填：否
+    }
+
+    9.参数名：payment_app_id {
+        描述：支付方式id
+        类型：varchar
+        必填：否
+    }
+
+例：data='{"addr_id":"1","member_id":"2","seller":[{"seller_id":"21","shipping_id":"2","goods":[{"goods_id":"106","product_id":"115","num":"1"}]}],"payment_app_id":"deposit"}'
+
+    返回参数：
+
+    Array
+(
+    aCart => Array
+        (
+            Array
+                (
+                    goods => Array
+                        (
+                            Array
+                                (
+                                    selected=> true                                                                                                                       选中状态
+                                    subtotal => 431.2                                                                                                                     商品小计
+                                    quantity => 1                                                                                                                         商品数量
+                                    name => 曼诺比菲 天丝牛仔连衣裤短裤女薄春夏新款 中腰宽松休闲连体裤                                                                    商品名称
+                                    goods_id => 23                                                                                                                        商品id
+                                    product_id => 24                                                                                                                      货品id
+                                    price => 431.20                                                                                                                       商品单价
+                                    image_url => http://linux.hiooy.com/ecstore/public/images/b8/10/15/1170767ef37e5f4baa6907682077f1b0.jpg?1395979179#w                  商品图片
+                                )
+
+                        )
+                        。
+                        。
+                        。
+
+                    seller_info=> Array                                                                                                                                     商户信息
+                        (
+                            seller_id=> 229                                                                                                                                 商户id
+                            seller_name => LOG ON公司                                                                                                                       商户名称
+                            selected => true                                                                                                                                选中状态
+                        )
+
+                    items_quantity => 1                                                                                                                                     商户商品数量
+                    subtotal => 431.2                                                                                                                                       商户商品小计
+                    shipping => Array                                                                                                                                       商户配送方式列表
+                        (
+                            Array
+                                (
+                                    choosed => true                                                                                                                         选中状态
+                                    dt_id => 11                                                                                                                             配送方式id
+                                    dt_name => 先收款后发货                                                                                                                 配送方式名称
+                                    money => 12                                                                                                                             运费
+                                )
+
+                        )
+
+                )
+                。
+                。
+                。
+
+        )
+
+    payment => Array                                                                                                                                    支付方式列表
+        (
+             Array
+                (
+                    choosed=> true                                                                                                                      选中状态，未选中为false
+                    app_display_name => 支付宝                                                                                                          支付方式名称
+                    app_id => malipay                                                                                                                   支付方式app_id
+                )
+                .
+                .
+                .
+
+        )
+
+    def_arr_addr => Array                                                                                                                               默认收货地址
+        (
+            addr_id => 1                                                                                                                                收货地址id
+            address => 上海市卢湾区123                                                                                                                  收货人详细地址
+            mobile => 15900000000                                                                                                                       收货人手机号码     
+            telephone =>                                                                                                                                收货人固定电话
+            name => 123                                                                                                                                 收货人姓名
+        )
+
+    addrlist => Array                                                                                                                                   收货地址列表
+        (
+             Array
+                (
+                    addr_id => 1                                                                                                                       收货地址id
+                    address => 上海市卢湾区123                                                                                                         收货人详细地址
+                    mobile => 15900000000                                                                                                              收货人手机号码
+                    telephone =>                                                                                                                       收货人固定电话
+                    name => 123                                                                                                                        收货人姓名
+                )
+                .
+                .
+                .
+
+        )
+
+    total => 2221.20                                                                                                                                   购物车总价
+)
+
+提交订单
+http://linux.hiooy.com/ecstore/index.php/wap/order-create.html
+
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+    2.参数名：addr_id {
+        描述：收货地址id
+        类型：varchar
+        必填：是
+    }
+    3.参数名：seller[ID][shipping_id]{
+        描述：对应商户配送方式id，其中ID为对应商户的id号，
+        类型：varchar
+        必填：是
+    }
+    4.参数名：payment_app_id {
+        描述：支付方式id
+        类型：varchar
+        必填：是
+    }
+    5.参数名：memo {
+        描述：客户留言
+        类型：longtext
+        必填：是
+    }
+
+
+订单支付
+http://linux.hiooy.com/ecstore/index.php/wap/order-dopayment.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    
+    2.参数名：order_id {
+        描述：关联订单号
+        类型：varchar
+        必填：是
+    }
+    3.参数名：payment_app_id {
+        描述：支付方式id
+        类型：varchar
+        必填：是
+    }
+
+
+删除购物车项
+http://linux.hiooy.com/ecstore/index.php/wap/cart-removecart.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    
+    2.参数名：obj_ident {
+        描述：购物车购物项（形如：goods_[goods_id]_[product_id]，例：goods_27_34）
+        类型：varchar
+        必填：是
+    }
+
+获取所有地区信息
+http://linux.hiooy.com/ecstore/index.php/wap/circle-get_regions.html
+返回参数
+
+provinces => Array                                                                                  //省级
+    (
+        id => 104                                                                                   //id
+        name => 安徽                                                                                //名称
+        cities => Array                                                                             //市级
+            (
+                Array
+                    (
+                        id => 105                                                                   //id 
+                        name => 合肥市                                                              //名称
+                        districts => Array                                                          //区级
+                            (
+                                Array
+                                    (
+                                        id => 106                                                   //id
+                                        name => 瑶海区                                              //名称
+                                    )
+                                。
+                                。
+                                。
+                            ）
+                    ）
+                。
+                。
+                。
+            ）
+    ）
+    。
+    。
+    。
+
+
+添加收货地址
+http://linux.hiooy.com/ecstore/index.php/wap/member-save_rec.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+    2.参数名：name {
+        描述：收货人姓名
+        类型：varchar
+        必填：是
+    }
+    3.参数名：is_default{
+        描述：是否默认
+        类型：varchar
+        必填：否
+    }
+
+    4.参数名：area_id{
+        描述：地区id
+        类型：varchar
+        必填：是
+    }
+    5.参数名：addr{
+        描述：详细地址
+        类型：varchar
+        必填：是
+    }
+    6.参数名：zipcode{
+        描述：邮编
+        类型：varchar
+        必填：否
+    }
+
+    7.参数名：telephone{
+        描述：收货人座机号
+        类型：varchar
+        必填：否，与手机号必填一项
+    }
+
+    9.参数名：mobile {
+        描述：收货人手机号
+        类型：varchar
+        必填：否
+    }
+
+{"member_id":"2","name":"zhxy","default":1,"area_id":"30","addr":"\u4e0a\u6d77\u5e02\u8679\u53e3\u533a2810\u53f7","zipcode":"200086","telephone":"65131874","mobile":"13661512157"}
+
+商品规格
+http://linux.hiooy.com/ecstore/index.php/wap/product-spec-[ID].html
+
+ID为商品goods_id
+
+返回参数
+spec_desc => Array                                                                                                                      //规格
+        (
+            Array
+                (
+                    spec_name=> 颜色                                                                                                    //规格名称
+                    spec_val => Array
+                        (
+                            Array
+                                (
+                                    [private_spec_value_id] => 13982476761
+                                    [spec_value] => 黑色
+                                )
+                                。
+                                。
+                                。
+                        )
+
+                )
+            Array
+                (
+                    spec_name => 尺码
+                    spec_val => Array
+                        (
+                            Array
+                                (
+                                    [private_spec_value_id] => 139824767622
+                                    [spec_value] => S
+                                )
+                                。
+                                。
+                                。
+
+
+
+        )
+
+    product => Array
+        (
+            Array
+                (
+                    product_id => 293                                                                                                       //货品id
+                    spec_desc => Array
+                        (
+                            spec_private_value_id => Array
+                                (
+                                    [1] => 13982476761                                                                                      //对应规格spec_private_value_id
+                                    [2] => 139824767622
+                                )
+
+                            spec_value => Array
+                                (
+                                    [1] => 黑色
+                                    [2] => S
+                                )
+
+                            spec_value_id => Array
+                                (
+                                    [1] => 1
+                                    [2] => 22
+                                )
+
+                        )
+
+                    store => 1000                                                                                                           //库存
+                    freez =>                                                                                                                //冻结库存
+                    marketable => true                                                                                                      //是否上架
+                )
+                .
+                .
+                .
+        )
+
+)
+
+
+
+
+会员全部订单（改动）
+http://linux.hiooy.com/ecstore/index.php/wap/member-orders-[page].html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+    返回参数：
+    Array
+(
+    pager => Array                                                                                                                                          
+        (
+            current => 1                                                                                                                                                        //当前页码
+            total => 1                                                                                                                                                          //总页数
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-orders-1.html                                                                                       //当前页地址                                               
+            next_page => http://linux.hiooy.com/ecstore/index.php/wap/member-orders-2.html                                                                                      //下一页地址（存在下一页才显示）
+        )
+
+    list => Array                                                                                                                                          
+        (
+            Array                                                                                                                                          
+                (
+                    order_id => 1403291736815901                                                                                                                                          
+                    final_amount => 1108.000                                                                                                                                          
+                    createtime => 2014-03-29 17:36                                                                                                                               //订单ID号
+                    orderdetail_url[orderdetail_url] => /ecstore/index.php/wap/member-orderdetail-1403291736815901.html                                                          //订单详情地址
+                    order_type => 待付款                                                                                                                                         //订单状态（待付款，待发货，待签收，待评价）
+                    status => 活动                                                                                                                                               //订单状态（活动，完成，取消）
+                    seller_id => 10                                                                                                                                              //商户id
+                    seller_name => 百丽国际                                                                                                                                      //商户名称
+                    goods => Array                                                                                                                                               
+                        (
+                            Array                                                                                                                                                                                  
+                                (
+                                    name => BELLE/百丽冬季深啡抓纹牛皮/绒里女皮靴3ZI63DZ2 棕色 35                                                                                //商品名称
+                                    goods_id => 15                                                                                                                               //商品id           
+                                    product_id => 15                                                                                                                             //货品id             
+                                    price => 1098.000                                                                                                                            //商品单价              
+                                    nums => 1                                                                                                                                    //商品数量      
+                                    amount => 1098.000                                                                                                                           //商品小计              
+                                    image_url => http://linux.hiooy.com/ecstore/public/images/5d/a7/00/a7416f8f5aea59dc4410551d9ffb1886.jpg?1395974107#w                         //商品图片地址
+                                )
+
+                        )
+                        .
+                        .
+                        .
+
+                )
+                .
+                .
+                .
+
+        )
+
+)
+
+会员待支付订单
+http://linux.hiooy.com/ecstore/index.php/wap/member-orders-[page]-unpay.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+    返回参数：
+    Array
+(
+    pager => Array                                                                                                                                          
+        (
+            current => 1                                                                                                                                                        //当前页码
+            total => 1                                                                                                                                                          //总页数
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-orders-1-unpay.html                                                                                 //当前页地址                                               
+            next_page => http://linux.hiooy.com/ecstore/index.php/wap/member-orders-2-unpay.html                                                                                //下一页地址（存在下一页才显示）
+        )
+
+    list => Array                                                                                                                                          
+        (
+            Array                                                                                                                                          
+                (
+                    order_id => 1403291736815901                                                                                                                                          
+                    final_amount => 1108.000                                                                                                                                          
+                    createtime => 2014-03-29 17:36                                                                                                                               //订单ID号
+                    orderdetail_url[orderdetail_url] => /ecstore/index.php/wap/member-orderdetail-1403291736815901.html                                                          //订单详情地址
+                    order_type => 待付款                                                                                                                                         //订单状态（待付款，待发货，待签收，待评价）
+                    status => 活动                                                                                                                                               //订单状态（活动，完成，取消）
+                    seller_id => 10                                                                                                                                              //商户id
+                    seller_name => 百丽国际                                                                                                                                      //商户名称
+                    goods => Array                                                                                                                                               
+                        (
+                            Array                                                                                                                                                                                  
+                                (
+                                    name => BELLE/百丽冬季深啡抓纹牛皮/绒里女皮靴3ZI63DZ2 棕色 35                                                                                //商品名称 
+                                    goods_id => 15                                                                                                                               //商品id           
+                                    product_id => 15                                                                                                                             //货品id             
+                                    price => 1098.000                                                                                                                            //商品单价              
+                                    nums => 1                                                                                                                                    //商品数量      
+                                    amount => 1098.000                                                                                                                           //商品小计              
+                                    image_url => http://linux.hiooy.com/ecstore/public/images/5d/a7/00/a7416f8f5aea59dc4410551d9ffb1886.jpg?1395974107#w                         //商品图片地址
+                                )
+
+                        )
+                        .
+                        .
+                        .
+
+                )
+                .
+                .
+                .
+
+        )
+
+)
+
+
+
+会员待发货订单
+http://linux.hiooy.com/ecstore/index.php/wap/member-orders-[page]-unship.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+    返回参数：
+    Array
+(
+    pager => Array                                                                                                                                          
+        (
+            current => 1                                                                                                                                                        //当前页码
+            total => 1                                                                                                                                                          //总页数
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-orders-1-unship.html                                                                                //当前页地址
+            next_page => http://linux.hiooy.com/ecstore/index.php/wap/member-orders-2-unship.html                                                                               //下一页地址（存在下一页才显示）
+        )
+
+    list => Array                                                                                                                                          
+        (
+            Array                                                                                                                                          
+                (
+                    order_id => 1403291736815901                                                                                                                                          
+                    final_amount => 1108.000                                                                                                                                          
+                    createtime => 2014-03-29 17:36                                                                                                                               //订单ID号
+                    orderdetail_url[orderdetail_url] => /ecstore/index.php/wap/member-orderdetail-1403291736815901.html                                                          //订单详情地址
+                    order_type => 待付款                                                                                                                                         //订单状态（待付款，待发货，待签收，待评价）
+                    status => 活动                                                                                                                                               //订单状态（活动，完成，取消）
+                    seller_id => 10                                                                                                                                              //商户id
+                    seller_name => 百丽国际                                                                                                                                      //商户名称
+                    goods => Array                                                                                                                                               
+                        (
+                            Array                                                                                                                                                                                  
+                                (
+                                    name => BELLE/百丽冬季深啡抓纹牛皮/绒里女皮靴3ZI63DZ2 棕色 35                                                                                //商品名称
+                                    goods_id => 15                                                                                                                               //商品id           
+                                    product_id => 15                                                                                                                             //货品id             
+                                    price => 1098.000                                                                                                                            //商品单价              
+                                    nums => 1                                                                                                                                    //商品数量      
+                                    amount => 1098.000                                                                                                                           //商品小计              
+                                    image_url => http://linux.hiooy.com/ecstore/public/images/5d/a7/00/a7416f8f5aea59dc4410551d9ffb1886.jpg?1395974107#w                         //商品图片地址
+                                )
+
+                        )
+                        .
+                        .
+                        .
+
+                )
+                .
+                .
+                .
+
+        )
+
+)
+
+
+会员待收货订单
+http://linux.hiooy.com/ecstore/index.php/wap/member-orders-[page]-unsign.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+    返回参数：
+    Array
+(
+    pager => Array                                                                                                                                          
+        (
+            current => 1                                                                                                                                                        //当前页码
+            total => 1                                                                                                                                                          //总页数
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-orders-1-unsign.html                                                                                //当前页地址                      
+            next_page => http://linux.hiooy.com/ecstore/index.php/wap/member-orders-2-unsign.html                                                                               //下一页地址（存在下一页才显示）
+        )
+
+    list => Array                                                                                                                                          
+        (
+            Array                                                                                                                                          
+                (
+                    order_id => 1403291736815901                                                                                                                                          
+                    final_amount => 1108.000                                                                                                                                          
+                    createtime => 2014-03-29 17:36                                                                                                                               //订单ID号
+                    orderdetail_url[orderdetail_url] => /ecstore/index.php/wap/member-orderdetail-1403291736815901.html                                                          //订单详情地址
+                    order_type => 待付款                                                                                                                                         //订单状态（待付款，待发货，待签收，待评价）
+                    status => 活动                                                                                                                                               //订单状态（活动，完成，取消）
+                    seller_id => 10                                                                                                                                              //商户id
+                    seller_name => 百丽国际                                                                                                                                      //商户名称
+                    goods => Array                                                                                                                                               
+                        (
+                            Array                                                                                                                                                                                  
+                                (
+                                    name => BELLE/百丽冬季深啡抓纹牛皮/绒里女皮靴3ZI63DZ2 棕色 35                                                                                //商品名称 
+                                    goods_id => 15                                                                                                                               //商品id           
+                                    product_id => 15                                                                                                                             //货品id             
+                                    price => 1098.000                                                                                                                            //商品单价              
+                                    nums => 1                                                                                                                                    //商品数量      
+                                    amount => 1098.000                                                                                                                           //商品小计              
+                                    image_url => http://linux.hiooy.com/ecstore/public/images/5d/a7/00/a7416f8f5aea59dc4410551d9ffb1886.jpg?1395974107#w                         //商品图片地址
+                                )
+
+                        )
+                        .
+                        .
+                        .
+
+                )
+                .
+                .
+                .
+
+        )
+
+)
+
+
+快速购买
+http://linux.hiooy.com/ecstore/index.php/wap/cart-checkout.html(与订单提交一个页面，单参数不同)
+
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+    2.参数名：goods_id {
+        描述：商品id
+        类型：varchar
+        必填：是
+    }
+    3.参数名：product_id{
+        描述：货品id，
+        类型：varchar
+        必填：是
+    }
+
+    4.参数名：num{
+        描述：数量
+        类型：varchar
+        必填：是
+    }
+    5.参数名：is_fast{
+        描述：快速购买标示
+        类型：varchar
+        必填：是，这里为1
+    }
+
+例：data='{"member_id":"2","goods_id":"112","product_id":"121","num":"1","is_fast":"1"}'
+
+    返回参数：
+
+    Array
+(
+    aCart => Array
+        (
+            Array
+                (
+                    goods => Array
+                        (
+                            Array
+                                (
+                                    selected=> true                                                                                                                       选中状态
+                                    subtotal => 431.2                                                                                                                     商品小计
+                                    quantity => 1                                                                                                                         商品数量
+                                    name => 曼诺比菲 天丝牛仔连衣裤短裤女薄春夏新款 中腰宽松休闲连体裤                                                                    商品名称
+                                    goods_id => 23                                                                                                                        商品id
+                                    product_id => 24                                                                                                                      货品id
+                                    price => 431.20                                                                                                                       商品单价
+                                    image_url => http://linux.hiooy.com/ecstore/public/images/b8/10/15/1170767ef37e5f4baa6907682077f1b0.jpg?1395979179#w                  商品图片
+                                )
+
+                        )
+
+                    seller_info=> Array                                                                                                                                     商户信息
+                        (
+                            seller_id=> 229                                                                                                                                 商户id
+                            seller_name => LOG ON公司                                                                                                                       商户名称
+                            selected => true                                                                                                                                选中状态
+                        )
+
+                    items_quantity => 1                                                                                                                                     商户商品数量
+                    subtotal => 431.2                                                                                                                                       商户商品小计
+                    shipping => Array                                                                                                                                       商户配送方式列表
+                        (
+                            Array
+                                (
+                                    choosed => true                                                                                                                         选中状态
+                                    dt_id => 11                                                                                                                             配送方式id
+                                    dt_name => 先收款后发货                                                                                                                 配送方式名称
+                                    money => 12                                                                                                                             运费
+                                )
+
+                        )
+
+                )
+
+        )
+
+    payment => Array                                                                                                                                    支付方式列表
+        (
+             Array
+                (
+                    choosed=> true                                                                                                                      选中状态，未选中为false
+                    app_display_name => 支付宝                                                                                                          支付方式名称
+                    app_id => malipay                                                                                                                   支付方式app_id
+                )
+
+        )
+
+    def_arr_addr => Array                                                                                                                               默认收货地址
+        (
+            addr_id => 1                                                                                                                                收货地址id
+            address => 上海市卢湾区123                                                                                                                  收货人详细地址
+            mobile => 15900000000                                                                                                                       收货人手机号码     
+            telephone =>                                                                                                                                收货人固定电话
+            name => 123                                                                                                                                 收货人姓名
+        )
+
+    addrlist => Array                                                                                                                                   收货地址列表
+        (
+             Array
+                (
+                    addr_id => 1                                                                                                                       收货地址id
+                    address => 上海市卢湾区123                                                                                                         收货人详细地址
+                    mobile => 15900000000                                                                                                              收货人手机号码
+                    telephone =>                                                                                                                       收货人固定电话
+                    name => 123                                                                                                                        收货人姓名
+                )
+
+        )                                                                                                                                  
+)
+
+收货地址列表
+http://linux.hiooy.com/ecstore/index.php/wap/member-receiver.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+
+返回参数：
+
+array(
+    addrlist => Array                                                                                                                                   收货地址列表
+        (
+             Array
+                (
+                    addr_id => 1															 收货地址id
+                    area => 上海市卢湾区														收货区域
+                    area_id => 1                                                                                                                     收货区域id
+                    addr => 上海市卢湾区123                                                                                                           收货人详细地址  
+                    name => 123                                                                                                                        收货人姓名
+                    zip => 123																邮编
+                    phone => array(
+			tel=>65131874															 收货人固定电话
+			mobile=>15900000000														收货人手机号码
+		    )                                                                                                        
+                    is_default =>1														是否默认                                                                                                          
+                )
+
+        )  
+
+)
+收货地址修改保存
+http://linux.hiooy.com/ecstore/index.php/wap/member-save_rec.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    } 
+    2.参数名：addr_id {
+        描述：收货人姓名
+        类型：varchar
+        必填：是
+    }
+    3.参数名：name {
+        描述：收货人姓名
+        类型：varchar
+        必填：是
+    }
+    4.参数名：default{
+        描述：是否默认
+        类型：varchar
+        必填：否
+    }
+
+    5.参数名：area_id{
+        描述：地区id
+        类型：varchar
+        必填：是
+    }
+    6.参数名：addr{
+        描述：详细地址
+        类型：varchar
+        必填：是
+    }
+    7.参数名：zipcode{
+        描述：邮编
+        类型：varchar
+        必填：否
+    }
+
+    8.参数名：telephone{
+        描述：收货人座机号
+        类型：varchar
+        必填：否，与手机号必填一项
+    }
+
+    9.参数名：mobile {
+        描述：收货人手机号
+        类型：varchar
+        必填：否
+    }
+
+
+收货地址删除
+http://linux.hiooy.com/ecstore/index.php/wap/member-del_receiver.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    } 
+    2.参数名：addr_id {
+        描述：收货人姓名
+        类型：varchar
+        必填：是
+    }
+
+收货地址设定默认或取消
+http://linux.hiooy.com/ecstore/index.php/wap/member-set_default-[ID]-[disabled].html
+ID为收货地址addr_id（必填），
+disabled为设置默认或取消默认，2为设置默认1为取消默认（不填则视为1取消默认）
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+
+
+
+加入收藏
+http://linux.hiooy.com/ecstore/index.php/wap/member-add_favorite-[ID].html
+ID为商品goods_id（必填）
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+
+取消收藏
+http://linux.hiooy.com/ecstore/index.php/wap/member-del_fav-[ID].html
+ID为商品goods_id（必填）
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+
+未评价商品列表（有改动）
+http://linux.hiooy.com/ecstore/index.php/wap/member-nodiscuss-[page].html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+返回参数
+Array
+(
+    list => Array
+        (
+            Array
+                (
+                    order_id => 1404291746559951                                                                                                                            //订单号
+                    product_id => 30                                                                                                                                        //商品货品id
+                    goods_id => 26                                                                                                                                          //商品id
+                    product_name => 2013新款 HIM汉崇正品 英伦格子立体修身风尚男士便西501054BL                                                                               //商品名称
+                    number => 1                                                                                                                                             //购买数量
+                    price => 434.000                                                                                                                                        //购买价格
+                    seller_id => 10                                                                                                                                         //商户id
+                    seller_name => 百丽国际                                                                                                                                 //商户名称
+                    createtime => 2014-04-29 17:46:19                                                                                                                       //下单时间
+                    image_url => http://linux.hiooy.com/ecstore/public/images/2b/7f/c5/bccfc3d640e5260cfd18ef53bb448897.jpg?1395994758#h                                    //缩略图
+                )
+                。
+                。
+                。
+
+        )
+
+    pager => Array
+        (
+            current => 1                                                                                                                                                        //当前页码
+            total => 1                                                                                                                                                          //总页数
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-nodiscuss-1.html                                                                                //当前页地址                      
+            next_page => http://linux.hiooy.com/ecstore/index.php/wap/member-nodiscuss-2.html                                                                               //下一页地址（存在下一页才显示）
+        )
+
+)
+
+
+评论商品
+http://linux.hiooy.com/ecstore/index.php/wap/member-comment-[order_id]-[product_id].html
+order_id 为订单号，必填
+product_id 为商品货品号，必填
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+返回参数
+Array
+(
+    [comment_goods_type] => Array                                                                                                                           商品评论选项
+        (
+             Array
+                (
+                    [type_id] => 1                                                                                                                          选项id
+                    [name] => 综合评分                                                                                                                      选项名称
+                    [is_total_point] => 1                                                                                                                   是否作为商品评论综合依据
+                )
+                。
+                。
+                。
+
+        )
+
+    [goods_info] => Array                                                                                                                                   商品信息
+        (
+            [goods_id] => 26                                                                                                                                商品id
+            [name] => 2013新款 HIM汉崇正品 英伦格子立体修身风尚男士便西501054BL                                                                             商品名称
+            [product_id] => 30                                                                                                                              商品货品id
+            [image_url] => http://linux.hiooy.com/ecstore/public/images/2b/7f/c5/bccfc3d640e5260cfd18ef53bb448897.jpg?1395994758#h                           商品图片地址
+        )
+    
+)
+
+
+提交商品评论
+
+http://linux.hiooy.com/ecstore/index.php/wap/member-toComment.html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+2.参数名：hidden_name
+描述：是否匿名
+类型：varchar
+必填：否(匿名则填写YES，不匿名则传空)
+
+3.参数名：point_type[type_id][point]
+描述：商品评论项分值（0-5）type_id为评论项id
+类型：int
+必填：是
+
+
+4.参数名：comment
+描述：评论内容
+类型：longtext
+必填：是
+
+5.参数名：goods_id
+描述：商品id
+类型：varchar
+必填：是
+
+6.参数名：product_id
+描述：商品货品id
+类型：varchar
+必填：是
+
+7.参数名：order_id
+描述：订单号
+类型：varchar
+必填：是
+
+8.参数名：contact
+描述：联系方式
+类型：varchar
+必填：否
+
+预存款消费记录
+
+http://linux.hiooy.com/ecstore/index.php/wap/member-balance-[page].html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+返回参数：
+Array
+(
+    [balance] => Array                                                                                                                  预存款交易记录
+        (
+            Array
+                (
+                    [mtime] => 2014-05-12 11:55                                                                                         交易时间
+                    [message] => 预存款支付订单                                                                                         明细
+                    [import_money] => 0.000                                                                                             存入金额
+                    [explode_money] => 0.000                                                                                            支出金额
+                    [member_advance] => 87634.800                                                                                       当前余额
+                )
+                .
+                .
+                .
+
+        )
+
+    [pager] => Array                                                                                                                    分页信息
+        (
+            [current] => 1
+            [total] => 3
+            [cur_page] => http://linux.hiooy.com/ecstore/index.php/wap/member-balance-1.html
+            [next_page] => http://linux.hiooy.com/ecstore/index.php/wap/member-balance-2.html
+        )
+
+    [total] => 87634.800                                                                                                                当前余额
+)
+
+
+
+
+预存款充值
+
+http://linux.hiooy.com/ecstore/index.php/wap/member-deposit.html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+Array
+(
+    total => 87634.800                                                                                                                  当前余额
+    payments => Array                                                                                                                   支付方式列表
+        (
+            Array
+                (
+                    [app_name] => 手机支付宝                                                                                             支付方式名称
+                    [app_id] => malipay                                                                                              支付方式app_id
+                )
+            。
+            。
+            。
+        )
+
+)
+
+预存款提交
+http://linux.hiooy.com/ecstore/index.php/wap/member-recharge.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    
+    2.参数名：money {
+        描述：充值金额
+        类型：varchar
+        必填：是
+    }
+    3.参数名：payment_app_id {
+        描述：支付方式id
+        类型：varchar
+        必填：是
+    }
+
+例：{"member_id":"2","money":"100","payment_app_id":"malipay"}
+
+
+
+
+
+订单详情
+
+http://linux.hiooy.com/ecstore/index.php/wap/member-orderdetail-[ID].html
+ID为订单id必填
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+
+返回参数
+Array
+(
+    order_id => 1404182021462672                                                                                                                    订单号
+    order_site_status => 等待付款                                                                                                                   订单支付物流状态（合并 如：已支付[未发货]）
+    total_amount => 1768.00                                                                                                                         订单总金额
+    status => 活动                                                                                                                                  订单状态（活动，完成，取消）
+    order_type => 待付款                                                                                                                            订单状态（待付款，待发货，待签收，待评价）
+    payed => 0.000                                                                                                                                  已支付金额
+    payinfo => Array                                                                                                                                订单支付方式信息
+        (
+            pay_app_id => malipay                                                                                                                    支付方式app_id
+            cost_payment => 0.000                                                                                                                    支付方式手续费
+            payment_name => 手机支付宝                                                                                                               支付方式名称
+        )
+
+    createtime => 2014-04-18 20:21                                                                                                                   下单时间
+    goods => Array                                                                                                                                   订单商品信息列表
+        (
+            Array
+                (
+                    goods_id => 26                                                                                                                 商品id
+                    product_id => 30                                                                                                               商品货品id
+                    bn => P53352E6149551                                                                                                           商品编号    
+                    name => 2013新款 HIM汉崇正品 英伦格子立体修身风尚男士便西501054BL                                                              商品名称                                              
+                    price => 434.000                                                                                                               购买价格 
+                    nums => 2                                                                                                                      购买数量
+                    amount => 868.000                                                                                                              购买总价  
+                    weight => 0                                                                                                                    商品重量
+                    sendnum => 0                                                                                                                   已发货数量
+                    image_url => http://linux.hiooy.com/ecstore/public/images/2b/7f/c5/bccfc3d640e5260cfd18ef53bb448897.jpg?1395994758#h           商品图片地址
+                )
+                .
+                .
+                .
+
+        )
+
+    consignee => Array                                                                                                                               收货地址信息
+        (
+            area => 上海/上海市/卢湾区                                                                                                               收货地区
+            name => 123                                                                                                                              收货人
+            addr => 123                                                                                                                              收货详细地址
+            zip =>                                                                                                                                   邮编
+            telephone =>                                                                                                                             联系电话
+            email =>                                                                                                                                 邮编
+            r_time => 任意日期,任意时间段                                                                                                            收货时间       
+            mobile => 15900000000                                                                                                                    联系手机
+        )
+
+)
+
+
+签收订单
+http://linux.hiooy.com/ecstore/index.php/wap/member-sign_order-[ID].html
+ID为订单id必填
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+关于订单状态文字与数字说明：
+0=>待付款
+1=>待发货
+2=>待签收
+3=>已签收
+4=>部分发货
+5=>已退货
+6=>部分付款
+7=>全额退款
+8=>已完成
+9=>已取消
+
+
+
+会员优惠券列表
+http://linux.hiooy.com/ecstore/index.php/wap/member-coupon-[page].html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+返回参数
+Array
+(
+    pager => Array                                                                                                                                                      分页信息
+        (
+            current => 1
+            total => 1
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-coupon-1.html
+        )
+
+    coupon => Array                                                                                                                                                   优惠券列表
+        (
+             Array
+                (
+                    memc_code => A123456                                                                                                                              优惠券编号
+                    cpns_name => 五一优惠券                                                                                                                           优惠券名称                       
+                    memc_gen_time => 2014-04-16 10:56:07                                                                                                              获取优惠券时间            
+                    from_time => 2014-04-11 20:28:00                                                                                                                  优惠券有效起始时间        
+                    to_time => 2014-04-20 23:29:00                                                                                                                    优惠券有效截止时间     
+                    memc_status => 还未开始或已过期                                                                                                                   优惠券当前有效状态（可使用，本优惠券已作废，本优惠券次数已用完，还未开始或已过期，本级别不准使用，此种优惠券已取消）       
+                )
+
+        )
+
+)
+
+优惠券使用记录
+http://linux.hiooy.com/ecstore/index.php/wap/member-used_coupon-[page].html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+返回参数
+Array
+(
+    pager => Array                                                                                                                                                      分页信息
+        (
+            current => 1
+            total => 1
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-coupon-1.html
+        )
+
+    coupon => Array                                                                                                                                                   优惠券使用记录
+        (
+             Array
+                (
+                    order_id => 1405161537125501                                                                                                                      应用订单号
+                    memc_code => A123456                                                                                                                              优惠券编号
+                    cpns_name => 五一优惠券                                                                                                                           优惠券名称                       
+                    usetime => 2014-05-16 15:37:05                                                                                                                    优惠券使用时间                    
+                    total_amount => 71.000                                                                                                                            订单金额 
+                )
+
+        )
+
+)
+
+优惠券使用记录
+http://linux.hiooy.com/ecstore/index.php/wap/member-used_coupon-[page].html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+返回参数
+Array
+(
+    pager => Array                                                                                                                                                      分页信息
+        (
+            current => 1
+            total => 1
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-coupon-1.html
+        )
+
+    coupon => Array                                                                                                                                                   优惠券使用记录
+        (
+             Array
+                (
+                    order_id => 1405161537125501                                                                                                                      应用订单号
+                    memc_code => A123456                                                                                                                              优惠券编号
+                    cpns_name => 五一优惠券                                                                                                                           优惠券名称                       
+                    usetime => 2014-05-16 15:37:05                                                                                                                    优惠券使用时间                    
+                    total_amount => 71.000                                                                                                                            订单金额 
+                )
+
+        )
+
+)
+
+积分兑换优惠券
+http://linux.hiooy.com/ecstore/index.php/wap/member-couponExchange-[page].html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+Array
+(
+    couponList => Array                                                                                                                                             可兑换优惠券
+        (
+            Array
+                (
+                    cpns_id => 2                                                                                                                                    优惠券id
+                    cpns_name => 优惠券兑换                                                                                                                         优惠券名称
+                    cpns_status => 1                                                                                                                                优惠券是否启用（0 =>未启用，1 => 启用）
+                    cpns_type => 1                                                                                                                                  优惠券类型（0 =>一张无限使用，1 => 多张使用一次）
+                    cpns_point => 10                                                                                                                                兑换所需积分
+                    from_time => 2014-05-01 00:00                                                                                                                   优惠券使用起始时间           
+                    to_time => 2014-07-31 00:00                                                                                                                     优惠券使用截止时间        
+                )
+
+        )
+    point=>988                                                                                                                                                       可使用积分 
+
+    pager => Array                                                                                                                                                   分页信息
+        (
+            current => 1
+            total => 1
+            cur_page=> http://linux.hiooy.com/ecstore/index.php/wap/member-couponExchange-1.html
+        )
+
+)
+
+兑换优惠券提交
+http://linux.hiooy.com/ecstore/index.php/wap/member-exchange-[ID].html
+ID 兑换优惠券id
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+
+会员积分
+http://linux.hiooy.com/ecstore/index.php/wap/member-points-[page].html
+ID 兑换优惠券id
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+
+    pager => Array                                                                                                                                                分页信息
+        (
+            [current] => 1
+            [total] => 1
+            [cur_page] => http://linux.hiooy.com/ecstore/index.php/wap/member-points-1.html
+        )
+
+    total => 988                                                                                                                                                  当前有效积分
+    historys => Array                                                                                                                                             积分变更记录
+        (
+            Array
+                (
+                    addtime => 2014-05-16 16:30                                                                                                                   变更时间
+                    expiretime => 永久有效                                                                                                                        有效时间（永久有效或者日期格式：2015-05-16 16:30）
+                    change_point => -10                                                                                                                           增减积分
+                    point => 988                                                                                                                                  当前有效积分
+                    reason => 兑换优惠券                                                                                                                          变更明细
+                )
+                。
+                。
+                。
+        ）
+
+赠品列表
+http://linux.hiooy.com/ecstore/index.php/wap/gift_lists-[page].html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+Array
+(
+    list => Array                                                                                                                                                 赠品列表
+        (
+            Array
+                (
+                    goods_id => 118                                                                                                                               赠品goods_id
+                    product_id => 134                                                                                                                             赠品货品id
+                    name => 测试赠品                                                                                                                              赠品名称
+                    marketable => true                                                                                                                            是否上架
+                    consume_score => 100                                                                                                                          所需积分
+                    from_time => 2014-05-01 00:00                                                                                                                 兑换起始时间
+                    to_time => 2014-06-30 00:00                                                                                                                   兑换截止时间
+                    image_url => http://linux.hiooy.com/ecstore/public/images/0c/04/fe/87dbe41f295c9432185b9f4f580fda0a.gif?1395218977#h                          赠品缩略图地址
+                    store => 1000                                                                                                                                 库存
+                )
+                。
+                。
+                。
+
+        )
+
+    pager=> Array                                                                                                                                                  分页信息
+        (
+            current => 1
+            total=> 1
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/member-points-1.html
+        )
+
+)
+
+首页广告图片列表
+http://linux.hiooy.com/ecstore/index.php/wap/circle-home_pics.html
+
+返回参数
+Array
+(
+    pics => Array
+        (
+             Array
+                (
+                    link => http://linux.hiooy.com/ecstore/wap_themes/default/images/ad0.jpg                                                                         图片地址
+                    linktarget => #                                                                                                                                  图片目标链接地址
+                    linkinfo => 描述1                                                                                                                                图片描述
+                )
+
+        )
+
+)
+
+
+
+
+
+搜索结果
+http://linux.hiooy.com/ecstore/index.php/wap/gallery-search.html
+参数名：keyword
+描述：关键字
+类型：varchar
+必填：是
+
+
+返回(与商品列表页数据相同)
+products => Array
+        (
+            Array
+                (
+                    goods_id => 1
+                    name => 春夏新品 KAILAS凯乐石户外男女款防晒排汗短袖速干T恤DG710115/720115 男款-湖水蓝 M 防紫外线+WICKDRY速干面料科技，排汗、快干+拼色圆领+个性LOGO印花设计
+                    price => 128.00
+                    store => 123
+                    mktprice => 268.00
+                    image_url=> 
+                    url => /ecstore/index.php/wap/product-1.html
+                )
+                .
+                .
+                .
+
+        )
+
+    pager => Array
+        (
+            current => 1
+            total => 3
+            cur_page => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---7--1--index.html
+            next_page => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---7--2--index.html
+        )
+
+    orderby => Array
+        (
+            Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---7--1--index.html
+                    lable => 人气最高
+                )
+
+            Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---5--1--index.html
+                    lable => 价格最低
+                )
+
+            Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---4--1--index.html
+                    lable => 价格最高
+                )
+
+            Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---11--1--index.html
+                    lable => 最新上架
+                )
+
+            Array
+                (
+                    url => http://linux.hiooy.com/ecstore/index.php/wap/gallery-index---9--1--index.html
+                    lable => 销量最高
+                )
+
+        )
+
+
+
+订单结算
+http://linux.hiooy.com/ecstore/index.php/wap/member-paycenter-[ID].html
+ID为订单id
+
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+
+返回参数
+Array
+(
+    order => Array                                                                                                                     订单信息
+        (
+            order_id => 1404291753388171                                                                                               订单id
+            seller_id =>10                                                                                                             订单商户id                                     
+            total_amount => 434.000                                                                                                    订单总价
+            seller_name => 百丽国际                                                                                                    订单商户名称
+            payinfo => Array                                                                                                           支付方式信息
+                (
+                    pay_app_id => malipay                                                                                              支付方式app_id       
+                    cost_payment => 0.000                                                                                              手续费       
+                )
+            goodlist => Array                                                                                                          订单商品列表
+                (
+                    Array
+                        (
+                            goods_id => 26                                                                                             商品goods_id        
+                            product_id => 30                                                                                           商品货品id          
+                            name => 2013新款 HIM汉崇正品 英伦格子立体修身风尚男士便西501054BL                                          商品名称
+                            price => 434.000                                                                                           购买价格          
+                            nums => 1                                                                                                  购买数量   
+                            amount => 434.000                                                                                          商品总价           
+                        )
+                        。
+                        。
+                        。
+
+                )
+
+        )
+
+    payment_list => Array                                                                                                              支付方式列表
+        (
+             Array
+                (
+                    [app_display_name] => 手机支付宝                                                                                   支付方式名称                  
+                    [app_id] => malipay                                                                                                支付方式app_id     
+                    [choosed] => true                                                                                                  是否默认   
+                )
+                .
+                .
+                .
+
+        )
+
+)
+
+短信验证
+
+http://linux.hiooy.com/ecstore/index.php/wap/passport-send_code.html
+
+参数名：mobile
+描述：手机号
+类型：varchar
+必填：是
+
+参数名：type
+描述：应用类型（1=>注册，2=>找回密码）
+类型：varchar
+必填：是
+
+
+
+团购秒杀详情页面
+http://linux.hiooy.com/ecstore/index.php/wap/sales-[ID].html
+ID为团购秒杀活动id
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+返回参数：
+Array ( 
+    type => 0                                                                                                         //活动类型(0=>团购，1=>抢购)
+    goods_id => 1                                                                                                     //活动商品id
+    name => 测试商品1                                                                                                 //活动名称
+    buy => 0                                                                                                          //已经购买量(已付款)
+    start_value => 10                                                                                                 //起始值(后台假设已购量)
+    min_buy => 1                                                                                                      //最小购买量
+    max_buy=> 44438                                                                                                   //最大购买量（满足时活动结束）
+    userlimit => 5                                                                                                    //每人限购
+    price => 80.000                                                                                                   //活动价
+    pro_type => 2                                                                                                     //优惠类型（1 => 达到一定费用免运费 2 => 无邮费优惠）
+    postage => 0                                                                                                      //邮费优惠
+    state => 2                                                                                                        //活动状态(1 => 未开始2 =>进行中3已结束（成功）4 =>已结束，待处理5 => 已结束（失败） )
+    intro =>   阿斯大是大非                                                                                           //活动说明          
+    start_time => 2014-05-27 12:00:00                                                                                 //开始时间                   
+    end_time => 2014-06-27 07:10:00                                                                                   //结束时间                  
+    old_price => 100.000                                                                                              //商品原价       
+    sales => 8                                                                                                        //折扣
+    images => Array (                                                                                                 //商品组图   
+    http://test.jooau.com/haiyin/public/images/b6/03/3c/e2eb951aa51847e3c09ced851e12902fd4bcc16d.jpg?1401166832#h
+    ) 
+
+) 
+
+团购秒杀列表页面（有改动）
+http://linux.hiooy.com/ecstore/index.php/wap/sales-lists-[type]-[page].html
+type:0团购；1秒杀
+
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+返回参数：
+Array
+(
+    pages => Array                                                                                                                                      //分页信息
+        (
+            current => 1
+            total=>  1
+            cur_page =>  http://linux.hiooy.com/ecstore/index.php/wap/sales-lists.html
+        )
+
+    sales => Array                                                                                                                                     //活动列表
+        (
+            Array
+                (
+                    act_id => 7                                                                                                                       活动id         
+                    name => 【三星专卖店】买就送移动电源 Samsung/三星 Galaxy Tab 3 Lite SM-T111 WCDMA 16GB 4G平板电脑                                 名称
+                    price=> 10.000                                                                                                                    活动价格
+                    gid => 114                                                                                                                        活动商品id
+                    image_url => http://linux.hiooy.com/ecstore/public/images/a2/29/9e/eb7a4687545ec4ae1e48f598fecc4d2b.jpg?1398149074#w              缩略图
+                    old_price => 100.000                                                                                                              原价
+                    start_time => 1401638400                                                                                                          起始时间
+                    end_time => 1402138320                                                                                                            结束时间
+                    min_buy => 2                                                                                                                      最少购买量
+                    seller_id => 83                                                                                                                   商户id
+                    buy => 0                                                                                                                          已购数量（已支付）
+                    start_value => 10                                                                                                                 后台预设已购数量
+                    seller_name => 测试商户                                                                                                           商户名称
+                。
+                。
+                。
+        
+        ）
+
+
+团购秒杀加入购物车
+http://linux.hiooy.com/ecstore/index.php/wap/sales-checkout.html
+参数名：member_id
+描述：会员id
+类型：varchar
+必填：是
+
+参数名：goods_id
+描述：商品id
+类型：varchar
+必填：是
+
+参数名：product_id
+描述：货品id
+类型：varchar
+必填：是
+
+参数名：num
+描述：数量
+类型：varchar
+必填：是
+
+返回参数
+与购物车checkout返回相同
+
+
+
+
+快速购买下单
+http://linux.hiooy.com/ecstore/index.php/wap/order-create.html
+    1.参数名：member_id {
+        描述：会员id
+        类型：varchar
+        必填：是
+    }
+    2.参数名：addr_id {
+        描述：收货地址id
+        类型：varchar
+        必填：是
+    }
+    3.参数名：seller[ID][shipping_id]{
+        描述：对应商户配送方式id，其中ID为对应商户的id号，
+        类型：varchar
+        必填：是
+    }
+    4.参数名：seller[ID][goods_id]{
+        描述：商品id
+        类型：varchar
+        必填：是
+    }
+    5.参数名：seller[ID][product_id]{
+        描述：货品id，
+        类型：varchar
+        必填：是
+    }
+    6.参数名：seller[ID][num]{
+        描述：数量
+        类型：varchar
+        必填：是
+    }
+    7.参数名：payment_app_id {
+        描述：支付方式id
+        类型：varchar
+        必填：是
+    }
+    8.参数名：memo {
+        描述：客户留言
+        类型：longtext
+        必填：是
+    }
+    9.参数名：is_fast{
+        描述：快速购买标示
+        类型：varchar
+        必填：是，这里为1
+    }

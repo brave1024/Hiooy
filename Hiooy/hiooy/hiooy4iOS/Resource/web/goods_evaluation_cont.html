@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>海印商城</title>
+<meta name="viewport" content="width=device-width initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link href="css/style.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript">
+function rate(obj,oEvent){
+var imgSrc = 'images/star_none.png';
+var imgSrc_2 = 'images/star_color.png';
+if(obj.rateFlag) return;
+var e = oEvent || window.event;
+var target = e.target || e.srcElement;
+var imgArray = obj.getElementsByTagName("img");
+for(var i=0;i<imgArray.length;i++){
+   imgArray[i]._num = i;
+   imgArray[i].onclick=function(){
+    if(obj.rateFlag) return;
+    alert(this._num+1);
+ var inputid=this.parentNode.previousSibling
+ inputid.value=this._num+1;
+   }
+}
+if(target.tagName=="IMG"){
+   for(var j=0;j<imgArray.length;j++){
+    if(j<=target._num){
+     imgArray[j].src=imgSrc_2;
+    } else {
+     imgArray[j].src=imgSrc;
+    }
+ target.parentNode.onmouseout=function(){
+ var imgnum=parseInt(target.parentNode.previousSibling.value);
+  for(n=0;n<imgArray.length;n++){
+   imgArray[n].src=imgSrc;
+  }
+  for(n=0;n<imgnum;n++){
+   imgArray[n].src=imgSrc_2;
+  }
+ }
+   }
+} else {
+  return false;
+}
+}
+</script>
+</head>
+<body>
+<div class="wrap_cont">
+    <div class="goods_cont_box">
+    	<h6 class="rate_tip">成交时间 2014-02-25 13:23:57</h6>
+		<div class="rate_box">
+        	<h5 class="rate_title">商品评价</h5>
+            <a href="#" class="favorites_list">
+                <img src="images/pic1.png" width="80" class="favorites_img"/>
+                <h4>办公室盆栽 绿色植物盆栽 室内盆栽花卉 豆瓣绿青叶碧玉</h4>
+                <p class="green_color">￥10.00</p>
+                <p class="grey_color">8298人收藏</p>
+                <i class="share_ico">1200</i>
+            </a>
+            <h6 class="rate_star"><span>描述相符</span>
+                <input type="hidden" value="0">
+                <p onmouseover="rate(this,event)">
+                    <img src="images/star_color.png" title="很烂">
+                    <img src="images/star_color.png" title="一般">
+                    <img src="images/star_none.png" title="还好">
+                    <img src="images/star_none.png" title="较好">
+                    <img src="images/star_none.png" title="很好">
+                </p>
+            </h6>
+            <div class="rate_textarea"><textarea>写点评价吧</textarea></div>
+        </div>  
+        <div class="rate_box">
+        	<h5 class="rate_title">给商品评分</h5>
+            <h6 class="rate_star"><span>服务态度</span>
+                <input type="hidden" value="0">
+                <p onmouseover="rate(this,event)">
+                    <img src="images/star_none.png" title="很烂">
+                    <img src="images/star_none.png" title="一般">
+                    <img src="images/star_none.png" title="还好">
+                    <img src="images/star_none.png" title="较好">
+                    <img src="images/star_none.png" title="很好">
+                </p>
+            </h6>
+            <h6 class="rate_star"><span>发货速度</span>
+                <input type="hidden" value="0">
+                <p onmouseover="rate(this,event)">
+                    <img src="images/star_none.png" title="很烂">
+                    <img src="images/star_none.png" title="一般">
+                    <img src="images/star_none.png" title="还好">
+                    <img src="images/star_none.png" title="较好">
+                    <img src="images/star_none.png" title="很好">
+                </p>
+            </h6>
+            <a class="rate_btn" href="#">发表评价</a>
+        </div>       	
+    </div>
+</div>
+</body>
+</html>

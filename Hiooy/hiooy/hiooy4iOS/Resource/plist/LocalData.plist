@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UserLogin</key>
+	<dict>
+		<key>send</key>
+		<string>{&quot;body&quot;:{&quot;userTel&quot;:&quot;13812345678&quot;,&quot;userPwd&quot;:&quot;123456&quot;},&quot;head&quot;:{&quot;method&quot;:&quot;021102&quot;,&quot;tokenId&quot;:&quot;20983678&quot;,&quot;version&quot;:&quot;1.0&quot;},&quot;mac&quot;:&quot;&quot;}</string>
+		<key>receive</key>
+		<string>{&quot;body&quot;:{&quot;code&quot;:&quot;000000&quot;,&quot;message&quot;:&quot;success&quot;,&quot;result&quot;:{&quot;userId&quot;:123,&quot;userTel&quot;:&quot;13812345678&quot;,&quot;userPwd&quot;:&quot;123456&quot;,&quot;userPic&quot;:&quot;http://---.png&quot;,&quot;userSex&quot;:&quot;男&quot;}},&quot;head&quot;:{&quot;method&quot;:&quot;112003&quot;,&quot;serialNumber&quot;:&quot;12032114314473700001&quot;,&quot;version&quot;:&quot;1&quot;},&quot;mac&quot;:&quot;45465768wrewrw&quot;}</string>
+	</dict>
+	<key>UserRegister</key>
+	<dict>
+		<key>send</key>
+		<string>{&quot;body&quot;:{&quot;userTel&quot;:&quot;13812345678&quot;,&quot;userPwd&quot;:&quot;123456&quot;},&quot;head&quot;:{&quot;method&quot;:&quot;021102&quot;,&quot;tokenId&quot;:&quot;20983678&quot;,&quot;version&quot;:&quot;1.0&quot;},&quot;mac&quot;:&quot;&quot;}</string>
+		<key>receive</key>
+		<string>{&quot;body&quot;:{&quot;code&quot;:&quot;000000&quot;,&quot;message&quot;:&quot;success&quot;,&quot;result&quot;:{&quot;userId&quot;:123,&quot;userTel&quot;:&quot;13812345678&quot;,&quot;userPwd&quot;:&quot;123456&quot;,&quot;userPic&quot;:&quot;http://---.png&quot;,&quot;userSex&quot;:&quot;男&quot;}},&quot;head&quot;:{&quot;method&quot;:&quot;112003&quot;,&quot;serialNumber&quot;:&quot;12032114314473700001&quot;,&quot;version&quot;:&quot;1&quot;},&quot;mac&quot;:&quot;45465768wrewrw&quot;}</string>
+	</dict>
+	<key>test</key>
+	<string>{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;msg&quot;: &quot;该登录账号已经存在&quot;,
+    &quot;data&quot;: &quot;&quot;
+}</string>
+	<key>New item - 2</key>
+	<string></string>
+</dict>
+</plist>
